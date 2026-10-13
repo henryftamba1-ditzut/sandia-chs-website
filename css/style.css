@@ -1677,3 +1677,19 @@ select:focus-visible {
 .btn {
     padding: 0.75rem 1rem;
 }
+
+.academic-banner-section {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.academic-banner-section .academic-banner {
+
+width: 100%;
+height: 450px;
+max-height: 450px;
+object-fit: cover;
+object-position: center top;
+display: block;
+}
+
