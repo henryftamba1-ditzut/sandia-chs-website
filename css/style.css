@@ -1693,3 +1693,92 @@ object-position: center top;
 display: block;
 }
 
+.about-us-banner-section {
+
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.about-us-banner-section .about-us-banner {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    object-position: center top;
+    display: block;
+}
+
+.tvet-banner-section {
+    
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.tvet-banner-section .tvet-banner {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    object-position: center top;
+    display: block;
+}
+
+.student-life-banner-section {
+    
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.student-life-banner-section .student-life-banner {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    object-position: center top;
+    display: block;
+}
+
+.news-banner-section {
+    
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.news-events-banner-section .news-events-banner {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    object-position: center top;
+    display: block;
+}
+
+.gallery-banner-section {
+    
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.gallery-banner-section .gallery-banner {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    object-position: center top;
+    display: block;
+}
+
+.contact-banner-section {
+    
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.contact-banner-section .contact-banner {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    object-position: center top;
+    display: block;
+}
