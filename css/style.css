@@ -266,13 +266,32 @@ select:focus-visible {
         position: relative;
     }
 
+
+    .school-brand {
+        flex: 1;
+        min-width: 0;
+        gap: 0.5rem;
+    }
+
+    .school-name {
+        min-width: 0;
+    }
+
     .school-name h1 {
-        font-size: 1rem;
+        font-size: 0.85rem;
+        line-height: 1.2;
+        margin: 0;
     }
 
     .school-name p {
-        font-size: 0.65rem;
+        font-size: 0.6rem;
+        line-height: 1.2;
     }
+
+    .menu-toggle {
+        flex-shrink: 0;
+    }
+
 }
 
 /* =========================================
@@ -397,21 +416,24 @@ select:focus-visible {
 
 .hero-placeholder {
     width: 100%;
-    max-width: 500px;
-    aspect-ratio: 4 / 3;
+    max-width: 600px;
+    aspect-ratio: auto;
 
     background-color: var(--primary-color);
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    color: var(--secondary-color);
+       color: var(--secondary-color);
 
     border-radius: 12px;
+     overflow: hidden;
 
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.hero-placeholder img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
 }
 
 .hero-placeholder span {
@@ -576,7 +598,7 @@ select:focus-visible {
     margin-bottom: 1rem;
 }
 
-.section-heading > p:last-child {
+.section-heading>p:last-child {
     color: #666666;
 }
 
@@ -958,7 +980,7 @@ select:focus-visible {
     margin-bottom: 1rem;
 }
 
-.events-introduction > p:not(.section-label) {
+.events-introduction>p:not(.section-label) {
     color: #666666;
     margin-bottom: 1.5rem;
 }
@@ -1000,7 +1022,7 @@ select:focus-visible {
     margin-top: 0.3rem;
 }
 
-.event-details > span {
+.event-details>span {
     color: var(--primary-color);
     font-size: 0.7rem;
     font-weight: bold;
@@ -1069,36 +1091,43 @@ select:focus-visible {
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    gap: 20px;
 }
-
 .gallery-item {
+    position: relative;
     overflow: hidden;
-    border-radius: 8px;
-}
-
-.gallery-placeholder {
+    border-radius: 10px;
     aspect-ratio: 4 / 3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-
-    font-size: 1.2rem;
-    font-weight: bold;
-    letter-spacing: 1px;
-
-    transition:
-        transform 0.3s ease,
-        opacity 0.3s ease;
 }
-
-.gallery-item:hover .gallery-placeholder {
-    transform: scale(1.04);
-    opacity: 0.9;
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s;
+    object-position: left center;
+}
+.gallery-item img.fit-whole {
+    object-fit: contain;
+    background: var(--light-background);
+}
+.gallery-item:has(img.fit-whole) {
+background: var(--light-background);
+}
+.gallery-item:has(img.fit-whole) .gallery-label {
+    color: var(--text-color);
+    background: none;
+}
+.gallery-item:hover img { transform: scale(1.05);}
+.gallery-label {
+position: absolute;
+inset: auto 0 0 0;
+padding: 12px;
+color: #fff;
+font-weight: 600;
+letter-spacing: 1px;
+background: linear-gradient(transparent, rgba(0,0,0,0.7));
 }
 
 .gallery-action {
@@ -1199,7 +1228,7 @@ select:focus-visible {
     border-radius: 8px;
 }
 
-.contact-form-wrapper > h3 {
+.contact-form-wrapper>h3 {
     color: var(--primary-color);
     font-size: 1.6rem;
     margin-bottom: 0.4rem;
@@ -1554,35 +1583,6 @@ select:focus-visible {
     font-weight: 700;
 }
 
-.gallery-item figcaption {
-    padding: 1rem;
-    font-weight: 700;
-    color: var(--text-color);
-    text-align: center;
-}
-
-
-@media (max-width: 900px) {
-
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-}
-
-
-@media (max-width: 600px) {
-
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .gallery-placeholder {
-        min-height: 180px;
-    }
-
-}
-
 
 /* ==================================================
    CONTACT FORM
@@ -1683,14 +1683,15 @@ select:focus-visible {
     margin: 0;
     padding: 0;
 }
+
 .academic-banner-section .academic-banner {
 
-width: 100%;
-height: 450px;
-max-height: 450px;
-object-fit: cover;
-object-position: center top;
-display: block;
+    width: 100%;
+    height: 450px;
+    max-height: 450px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
 }
 
 .about-us-banner-section {
@@ -1699,6 +1700,7 @@ display: block;
     margin: 0;
     padding: 0;
 }
+
 .about-us-banner-section .about-us-banner {
     width: 100%;
     height: auto;
@@ -1709,11 +1711,12 @@ display: block;
 }
 
 .tvet-banner-section {
-    
+
     width: 100%;
     margin: 0;
     padding: 0;
 }
+
 .tvet-banner-section .tvet-banner {
     width: 100%;
     height: auto;
@@ -1724,11 +1727,12 @@ display: block;
 }
 
 .student-life-banner-section {
-    
+
     width: 100%;
     margin: 0;
     padding: 0;
 }
+
 .student-life-banner-section .student-life-banner {
     width: 100%;
     height: auto;
@@ -1745,7 +1749,7 @@ display: block;
 }
 
 .news-banner-section {
-    
+
     width: 100%;
     margin: 0;
     padding: 0;
@@ -1762,11 +1766,12 @@ display: block;
 }
 
 .gallery-banner-section {
-    
+
     width: 100%;
     margin: 0;
     padding: 0;
 }
+
 .gallery-banner-section .gallery-banner {
     width: 100%;
     height: auto;
@@ -1777,11 +1782,12 @@ display: block;
 }
 
 .contact-banner-section {
-    
+
     width: 100%;
     margin: 0;
     padding: 0;
 }
+
 .contact-banner-section .contact-banner {
     width: 100%;
     height: auto;
@@ -1793,11 +1799,12 @@ display: block;
 
 
 .home-banner-section {
-    
+
     width: 100%;
     margin: 0;
     padding: 0;
 }
+
 .home-banner-section .home-banner {
     width: 100%;
     height: 420px;
@@ -1810,5 +1817,41 @@ display: block;
 @media (max-width: 600px) {
     .home-banner-section .home-banner {
         height: 240px;
+    }
+}
+
+
+/* =========================================
+   MOBILE HEADER ADJUSTMENT
+========================================= */
+
+@media (max-width: 768px) {
+    .header-container {
+        gap: 0.5rem;
+    }
+
+    .school-brand {
+        flex: 1;
+        min-width: 0;
+        gap: 0.5rem;
+    }
+
+    .school-name {
+        min-width: 0;
+    }
+
+    .school-name h1 {
+        font-size: 0.85rem;
+        line-height: 1.2;
+        margin: 0;
+    }
+
+    .school-name p {
+        font-size: 0.6rem;
+        line-height: 1.2;
+    }
+
+    .menu-toggle {
+        flex-shrink: 0;
     }
 }
