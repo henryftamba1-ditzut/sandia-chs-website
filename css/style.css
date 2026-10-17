@@ -1855,3 +1855,28 @@ background: linear-gradient(transparent, rgba(0,0,0,0.7));
         flex-shrink: 0;
     }
 }
+
+
+/* =========================================
+   ACCESSIBILITY: VISIBLE KEYBOARD FOCUS
+========================================= */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid #ffbf47;
+    outline-offset: 3px;
+}
+
+/* Ensure the school brand is easy to identify */
+.school-brand:focus-visible {
+    border-radius: 4px;
+}
+
+/* Keep focus visible on dark navigation backgrounds */
+.main-navigation a:focus-visible,
+.menu-toggle:focus-visible {
+    outline-color: #ffbf47;
+}
