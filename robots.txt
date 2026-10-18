@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://henryftamba1-ditzut.io/sandia-chs-website/sitemap.xml
+Sitemap: https://henryftamba1-ditzut.github.io/sandia-chs-website/sitemap.xml
