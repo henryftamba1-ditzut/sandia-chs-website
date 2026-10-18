@@ -133,6 +133,7 @@ if (contactForm && formStatus) {
             );
 
             const result = await response.json();
+            console.log("FormSubmit:",response.status,result);
 
             if (
                 !response.ok ||
