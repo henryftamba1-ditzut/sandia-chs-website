@@ -99,30 +99,58 @@ if (menuToggle && mainNavigation) {
 }
 
 
-// ================= CONTACT FORM =================
 
-const contactForm =
-    document.getElementById("contact-form");
+/* ================= CONTACT FORM ================= */
 
-const formStatus =
-    document.getElementById("form-status");
-
+const contactForm = document.getElementById("contact-form");
+const formStatus = document.getElementById("form-status");
 
 if (contactForm && formStatus) {
+    contactForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
 
-    contactForm.addEventListener(
-        "submit",
-        function (event) {
+        formStatus.textContent = "Sending your inquiry...";
 
-            event.preventDefault();
+        const formData = Object.fromEntries(
+            new FormData(contactForm).entries()
+        );
+
+        formData._subject =
+            "New Inquiry - Sandia Community High School";
+            formData._captcha="false";
+
+        try {
+            const response = await fetch(
+                "https://formsubmit.co/ajax/a4c4d359e4f952490d8139006a57bacc",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+                    body: JSON.stringify(formData)
+                }
+            );
+
+            const result = await response.json();
+
+            if (
+                !response.ok ||
+                String(result.success).toLowerCase() === "false"
+            ) {
+                throw new Error("Submission failed");
+            }
 
             formStatus.textContent =
-                "Thank you. Your inquiry has been received for demonstration purposes.";
+                "Thank you! Your inquiry has been submitted successfully.";
 
             contactForm.reset();
 
+        } catch (error) {
+            console.error("Contact form error:", error);
+
+            formStatus.textContent =
+                "We could not submit your inquiry. Please try again later.";
         }
-    );
-
+    });
 }
-
